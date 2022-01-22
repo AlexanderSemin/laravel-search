@@ -4,12 +4,11 @@
 
 @section("content")
 
-search result adresses
-    {{-- @guest
-        Please <a href="/login">LOGIN</a> or <a href="/register">REGISTER</a>.
+    @auth
+        @include('subviews.list-domains')
     @else
-        @include('subviews.form')
-    @endguest --}}
+        @include('subviews.need-login')
+    @endguest
 
 @endsection
 

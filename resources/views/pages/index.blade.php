@@ -9,7 +9,7 @@
     @auth
         @include('subviews.form')
     @else
-        <p class="text-center"> Please <a href="/login">LOGIN</a> or <a href="/register">REGISTER</a>.</p>
+        @include('subviews.need-login')
     @endguest
 
 @endsection
