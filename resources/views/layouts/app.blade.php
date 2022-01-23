@@ -38,10 +38,10 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/check">Check</a>
+                            <a class="nav-link" href="{{ route('pages.check') }}">Check</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/result">Result</a>
+                            <a class="nav-link" href="{{ route('pages.result') }}">Result</a>
                         </li>
                     </ul>
 

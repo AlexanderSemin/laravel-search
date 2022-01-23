@@ -20,13 +20,13 @@ Auth::routes();
 Route::get('/', function () {
     return view('pages.index');
 });
-//Route::get('/check', [CheckController::class, 'index']);
+
 //Route::get('/check',function () {
 ////    App\Jobs\DnsSearchDataJob::dispatch("run joooob!"); //не писать логику в роутах!
 //
 //});
 
-Route::get('/check',[CheckController::class, 'index']);
+Route::get('/check',[CheckController::class, 'index'])->name('pages.check');
 Route::post('/check',[CheckController::class, 'checkDNSname'])->name('submit-form');
 
-Route::get('/result', [ResultController::class, 'index']);
+Route::get('/result', [ResultController::class, 'index'])->name('pages.result');

@@ -38,10 +38,15 @@ class DnsSearchDataJob implements ShouldQueue
     public function handle()
     {
             $ip = gethostbyname($this->dnsname);
-            $dnsinfo = new DNSInfo();
-            $dnsinfo->domain = $this->dnsname;
-            $dnsinfo->ip = $ip;
-            $dnsinfo->save();
+            info($this->dnsname . " - " . $ip);
+            //write only valid adress to db
+            if(filter_var($ip, FILTER_VALIDATE_IP)) {
+                $dnsinfo = new DNSInfo();
+                $dnsinfo->domain = $this->dnsname;
+                $dnsinfo->ip = $ip;
+                $dnsinfo->save();
+            }
+
 
     }
 }
