@@ -6,9 +6,10 @@
 {{-- @section("content" , 'some value') --}} 
 @section("content")
 
-    @auth
-        @include('subviews.form')
-    @else
+
+   <h1 class="text-center">This is home page</h1>
+
+    @guest()
         @include('subviews.need-login')
     @endguest
 

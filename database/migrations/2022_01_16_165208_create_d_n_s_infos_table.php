@@ -17,7 +17,7 @@ class CreateDNSInfosTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('domain');
-            $table->string('ip');
+            $table->string('ip')->nullable();
         });
     }
 

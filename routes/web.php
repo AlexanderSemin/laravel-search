@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\CheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
+//home page
 Route::get('/', function () {
     return view('pages.index');
 });
+//Route::get('/check', [CheckController::class, 'index']);
+//Route::get('/check',function () {
+////    App\Jobs\DnsSearchDataJob::dispatch("run joooob!"); //не писать логику в роутах!
+//
+//});
 
-Route::get('/result', function () {
-    return view('pages.result');
-});
+Route::get('/check',[CheckController::class, 'index']);
+Route::post('/check',[CheckController::class, 'checkDNSname'])->name('submit-form');
 
-
-Auth::routes();
-
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/result', [ResultController::class, 'index']);
