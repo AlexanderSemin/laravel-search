@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CheckDNS;
 use Illuminate\Foundation\Http\FormRequest;
+
+
 
 class CheckDNSRequest extends FormRequest
 {
@@ -26,7 +29,7 @@ class CheckDNSRequest extends FormRequest
 
 //        todo: add custom validate dns name
         return [
-            'domain_name' => 'sometimes|required'
+            'domain_name' => 'sometimes|required',
         ];
     }
 }

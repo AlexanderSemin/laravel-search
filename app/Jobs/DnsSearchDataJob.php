@@ -12,6 +12,9 @@ use Illuminate\Queue\SerializesModels;
 use App\Http\Requests\CheckDNSRequest;
 use App\Models\DNSInfo;
 
+
+// don't forget
+// php artisan queue:work --daemon  xD
 class DnsSearchDataJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
