@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
@@ -88,11 +88,12 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-2">
-                        @include('subviews.sidebar')
-                    </div>
-                    <div class="col-10">
+
+                    <div class="col-md-8 order-md-1">
                         @yield('content')
+                    </div>
+                    <div class="col-md-4 order-md-2 mb-4">
+                        @include('subviews.sidebar')
                     </div>
                 </div>
             </div>

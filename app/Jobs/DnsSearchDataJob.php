@@ -40,16 +40,30 @@ class DnsSearchDataJob implements ShouldQueue
      */
     public function handle()
     {
-            $ip = gethostbyname($this->dnsname);
-            info($this->dnsname . " - " . $ip);
-            //write only valid adress to db
-            if(filter_var($ip, FILTER_VALIDATE_IP)) {
-                $dnsinfo = new DNSInfo();
-                $dnsinfo->domain = $this->dnsname;
-                $dnsinfo->ip = $ip;
-                $dnsinfo->save();
-            }
+        $string_url = '';
+
+        //todo: need check link with https/http/www  and simple link like  testsite.tt
+
+
+        if(str_replace(array('http', 'https', 'www'), '', $this->dnsname) != $this->dnsname){
+
+            $string_url = $this->dnsname;
+        } else{
+            $string_url = parse_url($this->dnsname);
+        }
+
+        $ip = gethostbyname($string_url);
+        info($this->dnsname . " - " . $ip);
+        //write only valid adress to db
+        if(filter_var($ip, FILTER_VALIDATE_IP)) {
+            $dnsinfo = new DNSInfo();
+            $dnsinfo->domain = $this->dnsname;
+            $dnsinfo->ip = $ip;
+            $dnsinfo->save();
+        }
 
 
     }
+
+
 }
