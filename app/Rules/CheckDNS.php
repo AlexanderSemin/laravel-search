@@ -25,7 +25,8 @@ class CheckDNS implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/^(?!:\/\/)(?=.{1,255}$)((.{1,63}\.){1,127}(?![0-9]*$)[a-z0-9-]+\.?)$/i', $value);
+        $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
+        return preg_match($regex, $value);
     }
 
     /**
