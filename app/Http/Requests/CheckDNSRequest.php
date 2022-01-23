@@ -28,8 +28,6 @@ class CheckDNSRequest extends FormRequest
     {
 
 //        todo: add custom validate dns name
-        return [
-            'domain_name' => 'sometimes|required',
-        ];
+        return ['domain_name' => ['required', new CheckDNS()]];
     }
 }
