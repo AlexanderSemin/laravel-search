@@ -18,7 +18,7 @@
 
     <button type="submit" class="btn btn-primary">Check</button>
 </form>
-
+<br/>
 
 @if (\Session::has('success'))
     <div class="alert alert-success">

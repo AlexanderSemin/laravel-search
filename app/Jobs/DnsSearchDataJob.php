@@ -37,10 +37,11 @@ class DnsSearchDataJob implements ShouldQueue
      */
     public function handle()
     {
+            $ip = gethostbyname($this->dnsname);
+            $dnsinfo = new DNSInfo();
+            $dnsinfo->domain = $this->dnsname;
+            $dnsinfo->ip = $ip;
+            $dnsinfo->save();
 
-
-//        dd($this);
-//        info($this->request);
-//        info("1231231");
     }
 }

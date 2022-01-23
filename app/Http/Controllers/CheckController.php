@@ -22,11 +22,6 @@ class CheckController extends Controller
         $strDNS = $request->input('domain_name');
         dispatch(new DnsSearchDataJob($strDNS));
 
-//        $validatedData = $request->validate(); //dont need anymore/ laravel do this auto
-//        $dnsinfo = new DNSInfo();
-//        $dnsinfo->domain = $request->input('domain_name');
-//        $dnsinfo->save();
-
         return redirect()->back()->with('success', 'Great! submit success.');
 
     }
