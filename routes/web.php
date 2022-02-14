@@ -36,8 +36,8 @@ Route::get('/result', [ResultController::class, 'index'])->name('pages.result');
 Route::middleware(['role:admin'])->prefix('administrator')->group(function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('administrator'); // /administrator
-    Route::get('/settings', [HomeController::class, 'settings']); // /administrator
-//    Route::resource('category', CategoryController::class);
+//    Route::get('/settings', [HomeController::class, 'settings']); // /administrator
+    Route::get('/list-domain', [HomeController::class, 'list_domain']);
 //    Route::resource('post', PostController::class);
 });
 
